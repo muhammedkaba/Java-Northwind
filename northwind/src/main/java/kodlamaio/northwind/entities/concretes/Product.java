@@ -1,6 +1,5 @@
 package kodlamaio.northwind.entities.concretes;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,7 +40,7 @@ public class Product {
 	@Column(name="quantity_per_unit")
 	private String quantityPerUnit;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name="category_id")
 	private Category category;
 
