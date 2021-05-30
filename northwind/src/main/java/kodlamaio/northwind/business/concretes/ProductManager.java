@@ -15,10 +15,12 @@ import kodlamaio.northwind.core.utilities.results.SuccessDataResult;
 import kodlamaio.northwind.core.utilities.results.SuccessResult;
 import kodlamaio.northwind.dataAccess.abstracts.ProductDao;
 import kodlamaio.northwind.entities.concretes.Product;
+import kodlamaio.northwind.entities.dtos.ProductWithCategoryDto;
 
 @Service
 public class ProductManager implements ProductService{
 	
+
 	private ProductDao productDao;
 
 	@Autowired
@@ -98,6 +100,12 @@ public class ProductManager implements ProductService{
 	public DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId) {
 		return new SuccessDataResult<List<Product>>
 		(this.productDao.getByNameAndCategory(productName,categoryId),"urunler listelendi");
+	}
+	
+	@Override
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+		return new SuccessDataResult<List<ProductWithCategoryDto>>
+		(this.productDao.getProductWithCategoryDetails(),"urunler listelendi");
 	}
 	
 }
